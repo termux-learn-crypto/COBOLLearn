@@ -19,6 +19,12 @@ export interface Course {
   lessons: string[];
 }
 
+export interface LessonExercise {
+  level: "beginner" | "intermediate" | "advanced" | "debugging";
+  task: string;
+  hint?: string;
+}
+
 export interface Lesson {
   id: string;
   slug: string;
@@ -33,6 +39,15 @@ export interface Lesson {
   quizId: string;
   order: number;
   readMinutes: number;
+  prerequisites?: string[];
+  edgeCases?: { problem: string; explanation: string }[];
+  debugging?: { code: string; error: string; reason: string; fix: string; correctCode: string }[];
+  bestPractices?: string[];
+  exercises?: LessonExercise[];
+  interviewQA?: { question: string; answer: string }[];
+  glossaryTerms?: { term: string; definition: string }[];
+  summaryPoints?: string[];
+  nextTopic?: string;
 }
 
 export interface Question {

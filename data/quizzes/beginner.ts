@@ -60,5 +60,13 @@ export const beginnerQuizzes = [
   quiz("move", [
     ["MOVE kaam kya karta hai?", ["Value copy karta hai", "Value add karta hai", "Input leta hai", "File kholta hai"], 0, "MOVE source ki value destination me copy karta hai."],
     ["Numeric move me value kaise align hoti hai?", ["Right aligned with zero padding", "Left aligned with spaces", "Center aligned", "Random"], 0, "Numeric move right align hoti hai aur zeros se pad hoti hai."],
+    ["Alphanumeric move me padding ke liye kya use hota hai?", ["Zeros", "Spaces", "Stars", "Nothing"], 1, "Alphanumeric move left align hota hai aur spaces se pad hota hai."],
+    ["PIC X(05) wale field me 'HI' move karne par kya store hoga?", ["HI", "HI   ", "   HI", "000HI"], 1, "Alphanumeric move left align hota hai, bachi jagah spaces se bharti hai."],
+    ["PIC 9(03) me value 7 move karne par kya milega?", ["7", "007", "700", "07 "], 1, "Numeric move right align hota hai aur zeros se pad hota hai."],
+    ["'WELCOME' ko PIC X(03) me move karne par kya hoga?", ["WEL", "COME", "WEC", "Error aayega"], 0, "Destination chhota hone par truncation hota hai — sirf WEL fit hoga."],
+    ["MOVE SPACES TO numeric-field kya karta hai?", ["Value spaces se bharta hai", "Error nahi dega par numeric me invalid hoga", "Zero se bharta hai", "Kuch nahi"], 1, "Numeric field me spaces invalid data hota hai, runtime abend ho sakta hai."],
+    ["Group move me kya rules apply hote hain?", ["Alignment rules", "Byte-by-byte copy, koi algnment nahi", "Zero padding", "Decimal adjustment"], 1, "Group move poori group record ki byte-by-byte copy karta hai."],
+    ["MOVE 0 TO WS-A WS-B WS-C ka kya matlab hai?", ["Sirf WS-A zero hoga", "Teeno zero honge", "Error aayega", "WS-C zero hoga"], 1, "Multiple destinations allowed hain — teeno me source ki value copy hoti hai."],
+    ["MOVE aur COMPUTE me kya difference hai?", ["Koi difference nahi", "MOVE copy karta hai, COMPUTE arithmetic karta hai", "COMPUTE copy karta hai, MOVE arithmetic", "Dono file handle karte hain"], 1, "MOVE data transfer hai, COMPUTE arithmetic expression evaluate karta hai."],
   ]),
 ];

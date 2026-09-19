@@ -12,6 +12,15 @@ interface LessonInput {
   practice?: string;
   quizId?: string;
   readMinutes?: number;
+  prerequisites?: string[];
+  edgeCases?: Lesson["edgeCases"];
+  debugging?: Lesson["debugging"];
+  bestPractices?: string[];
+  exercises?: Lesson["exercises"];
+  interviewQA?: Lesson["interviewQA"];
+  glossaryTerms?: Lesson["glossaryTerms"];
+  summaryPoints?: string[];
+  nextTopic?: string;
 }
 
 const counters: Record<string, number> = {};
@@ -32,6 +41,15 @@ export function lesson(input: LessonInput): Lesson {
     quizId: input.quizId ?? `${input.slug}-quiz`,
     order,
     readMinutes: input.readMinutes ?? Math.max(4, Math.round(input.blocks.length / 2) + 2),
+    prerequisites: input.prerequisites,
+    edgeCases: input.edgeCases,
+    debugging: input.debugging,
+    bestPractices: input.bestPractices,
+    exercises: input.exercises,
+    interviewQA: input.interviewQA,
+    glossaryTerms: input.glossaryTerms,
+    summaryPoints: input.summaryPoints,
+    nextTopic: input.nextTopic,
   };
 }
 
@@ -57,3 +75,8 @@ export const list = (items: string[], ordered = false): ContentBlock[] =>
 export const tip = (text: string): ContentBlock => ({ type: "tip", text });
 export const note = (text: string): ContentBlock => ({ type: "note", text });
 export const warn = (text: string): ContentBlock => ({ type: "warning", text });
+export const table = (headers: string[], rows: string[][]): ContentBlock => ({
+  type: "table",
+  headers,
+  rows,
+});

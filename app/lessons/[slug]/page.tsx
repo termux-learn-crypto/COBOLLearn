@@ -11,7 +11,19 @@ import {
 } from "@/lib/content";
 import ContentRenderer from "@/components/lesson/ContentRenderer";
 import LessonHeader from "@/components/lesson/LessonHeader";
-import { Exercise, LessonObjectives } from "@/components/lesson/LessonSections";
+import {
+  BestPractices,
+  Debugging,
+  EdgeCases,
+  Exercise,
+  Exercises,
+  GlossaryTerms,
+  InterviewQA,
+  LessonObjectives,
+  NextTopic,
+  Prerequisites,
+  Summary,
+} from "@/components/lesson/LessonSections";
 import LessonNavigation from "@/components/lesson/LessonNavigation";
 import CompleteButton from "@/components/lesson/CompleteButton";
 import CodeBlock from "@/components/lesson/CodeBlock";
@@ -63,6 +75,8 @@ export default async function LessonPage({
 
         <ContentRenderer blocks={lesson.blocks} />
 
+        {lesson.prerequisites && <Prerequisites items={lesson.prerequisites} />}
+
         {lesson.examples.length > 0 && (
           <section className="mt-8">
             <h2 className="text-xl font-bold text-slate-900 dark:text-white">
@@ -91,6 +105,14 @@ export default async function LessonPage({
           </section>
         )}
 
+        {lesson.edgeCases && <EdgeCases items={lesson.edgeCases} />}
+        {lesson.debugging && <Debugging items={lesson.debugging} />}
+        {lesson.bestPractices && <BestPractices items={lesson.bestPractices} />}
+        {lesson.exercises && <Exercises items={lesson.exercises} />}
+        {lesson.interviewQA && <InterviewQA items={lesson.interviewQA} />}
+        {lesson.glossaryTerms && <GlossaryTerms items={lesson.glossaryTerms} />}
+        {lesson.summaryPoints && <Summary points={lesson.summaryPoints} />}
+
         <Exercise
           practice={lesson.practice}
           commonMistakes={lesson.commonMistakes}
@@ -109,6 +131,7 @@ export default async function LessonPage({
           </Link>
         </div>
 
+        <NextTopic text={lesson.nextTopic} />
         <LessonNavigation prev={prev} next={next} />
       </article>
     </div>

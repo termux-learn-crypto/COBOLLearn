@@ -1,5 +1,6 @@
 import type { Lesson } from "@/types";
 import { beginnerLessons } from "./beginner";
+import { moveLesson } from "./move";
 import { fundamentalsLessons } from "./fundamentals";
 import { conditionsLessons } from "./conditions";
 import { loopsLessons } from "./loops";
@@ -12,6 +13,7 @@ import { mainframeLessons } from "./mainframe";
 
 export const allLessons: Lesson[] = [
   ...beginnerLessons,
+  moveLesson,
   ...fundamentalsLessons,
   ...conditionsLessons,
   ...loopsLessons,
